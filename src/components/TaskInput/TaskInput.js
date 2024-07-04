@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
-import './TaskInput.css';
+import './TaskInput.css'; //Importing the respective css properties
 
 class TaskInput extends Component {
   state = {
-    input: ''
+    input: ''  //Initializing Input state
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.editTask !== this.props.editTask && this.props.editTask) {
-      this.setState({ input: this.props.editTask.text });
+    const {editTask} = this.props
+    if (prevProps.editTask !== editTask && editTask) { //getting editTask status with props
+      this.setState({ input: editTask.text });
     }
   }
 
   handleChange = (e) => {
-    this.setState({ input: e.target.value });
+    this.setState({ input: e.target.value }); // To get the value of the Input entered in Input section
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = (e) => { //form submission Function
     e.preventDefault();
     const { addTask, editTask, updateTask } = this.props;
     const { input } = this.state;
@@ -26,7 +27,7 @@ class TaskInput extends Component {
     } else {
       addTask(input);
     }
-    this.setState({ input: '' });
+    this.setState({ input: '' }); //After adding, setting Input bar Empty
   };
 
   render() {
@@ -41,9 +42,9 @@ class TaskInput extends Component {
           value={input}
           onChange={this.handleChange}
           required
-        />
+        /> 
         <button type="submit">
-          {editTask ? 'Update Task' : 'Add Task'}
+          {editTask ? 'Update Task' : 'Add Task'} 
         </button>
       </form>
     );
