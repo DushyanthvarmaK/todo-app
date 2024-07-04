@@ -1,0 +1,40 @@
+.task-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .task-item {
+    padding: 10px;
+    margin: 10px 0;
+    background: #fff;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+  
+  .task-item.completed {
+    text-decoration: line-through;
+    color: var(--completed-text-color);
+  }
+  
+  .task-actions {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .task-actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: #fff;
+    transition: background-color 0.3s;
+  }
+  
+  .task-actions button:hover {
+    background-color: var(--secondary-color);
+  }
